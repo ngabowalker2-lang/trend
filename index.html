@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>NexusTrade Pro | Vibrant Trading Dashboard</title>
+  <meta name="description" content="Professional Trading Dashboard with Real-time Market Data">
+  <meta name="theme-color" content="#0a0f1e">
+  <title>NexusTrade Pro | Institutional Trading Platform</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
@@ -15,16 +17,25 @@
 </head>
 <body>
   <div class="app-container">
-    <!-- Sidebar Navigation -->
+    <!-- Sidebar Navigation - Professional -->
     <aside class="sidebar">
-      <div class="logo-sidebar">
-        <i class="fas fa-chart-line"></i>
-        <span>NexusTrade</span>
+      <div class="sidebar-header">
+        <div class="logo-sidebar">
+          <div class="logo-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="logo-text">
+            <span class="logo-main">NexusTrade</span>
+            <span class="logo-badge">PRO</span>
+          </div>
+        </div>
       </div>
+      
       <nav class="nav-menu">
         <a href="#" class="nav-item active" data-page="dashboard">
           <i class="fas fa-tachometer-alt"></i>
           <span>Dashboard</span>
+          <span class="nav-badge">Live</span>
         </a>
         <a href="#" class="nav-item" data-page="trade">
           <i class="fas fa-exchange-alt"></i>
@@ -38,120 +49,221 @@
           <i class="fas fa-chart-pie"></i>
           <span>Analytics</span>
         </a>
+        <a href="#" class="nav-item" data-page="settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
       </nav>
+      
       <div class="sidebar-footer">
         <div class="portfolio-summary">
-          <div class="portfolio-label">Portfolio Value</div>
+          <div class="portfolio-label">Total Portfolio Value</div>
           <div class="portfolio-value" id="portfolioValue">$12,450.00</div>
+          <div class="portfolio-change positive" id="portfolioChange">+8.2%</div>
         </div>
         <div class="user-status">
-          <i class="fas fa-circle online"></i>
-          <span>Live Mode</span>
+          <div class="user-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="user-info">
+            <div class="user-name">Alex Thompson</div>
+            <div class="user-role">Pro Trader</div>
+          </div>
+          <div class="status-indicator online"></div>
         </div>
       </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Header -->
+      <!-- Top Header -->
       <header class="top-header">
         <div class="header-left">
-          <h1 id="pageTitle">Dashboard</h1>
-          <div class="market-status">
-            <span class="status-badge"><i class="fas fa-charging-station"></i> Bullish Market</span>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="page-info">
+            <h1 id="pageTitle">Dashboard</h1>
+            <div class="breadcrumb">
+              <span>Home</span>
+              <i class="fas fa-chevron-right"></i>
+              <span id="breadcrumbCurrent">Overview</span>
+            </div>
           </div>
         </div>
+        
         <div class="header-right">
-          <div class="notification-icon">
-            <i class="fas fa-bell"></i>
-            <span class="notification-dot"></span>
+          <div class="market-status-indicator">
+            <i class="fas fa-circle"></i>
+            <span>Markets Open</span>
           </div>
-          <div class="user-profile">
-            <i class="fas fa-user-circle"></i>
-            <span>Trader Pro</span>
+          <div class="header-actions">
+            <button class="icon-btn" id="refreshData">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <button class="icon-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </button>
+            <div class="user-profile-dropdown">
+              <div class="user-profile">
+                <div class="user-avatar-small">
+                  <i class="fas fa-user"></i>
+                </div>
+                <span>Alex T.</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </div>
           </div>
-          <button id="refreshData" class="refresh-btn">
-            <i class="fas fa-sync-alt"></i>
-          </button>
         </div>
       </header>
 
       <!-- Dashboard Page -->
       <div id="dashboardPage" class="page active">
-        <!-- Stats Grid -->
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+          <div class="banner-content">
+            <h2>Welcome back, Alex 👋</h2>
+            <p>Your portfolio is up <strong>+8.2%</strong> this week. Great performance!</p>
+          </div>
+          <div class="banner-stats">
+            <div class="banner-stat">
+              <span>Win Rate</span>
+              <strong id="winRateBanner">78%</strong>
+            </div>
+            <div class="banner-stat">
+              <span>Streak</span>
+              <strong id="streakBanner">5</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid - Professional -->
         <div class="stats-grid">
-          <div class="stat-card blue-card">
-            <div class="stat-icon"><i class="fab fa-bitcoin"></i></div>
-            <div class="stat-info">
-              <div class="stat-label">BTC/USD</div>
-              <div class="stat-value" id="btcPrice">$62,450.00</div>
-              <div class="stat-change positive" id="btcChange">+2.45%</div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">BTC/USD</span>
+              <i class="fab fa-bitcoin"></i>
+            </div>
+            <div class="stat-value" id="btcPrice">$62,450.00</div>
+            <div class="stat-footer">
+              <span class="stat-change positive" id="btcChange">+2.45%</span>
+              <span class="stat-time">24h change</span>
             </div>
           </div>
-          <div class="stat-card green-card">
-            <div class="stat-icon"><i class="fab fa-ethereum"></i></div>
-            <div class="stat-info">
-              <div class="stat-label">ETH/USD</div>
-              <div class="stat-value" id="ethPrice">$3,245.50</div>
-              <div class="stat-change positive" id="ethChange">+1.23%</div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">ETH/USD</span>
+              <i class="fab fa-ethereum"></i>
+            </div>
+            <div class="stat-value" id="ethPrice">$3,245.50</div>
+            <div class="stat-footer">
+              <span class="stat-change positive" id="ethChange">+1.23%</span>
+              <span class="stat-time">24h change</span>
             </div>
           </div>
-          <div class="stat-card yellow-card">
-            <div class="stat-icon"><i class="fab fa-apple"></i></div>
-            <div class="stat-info">
-              <div class="stat-label">AAPL</div>
-              <div class="stat-value" id="aaplPrice">$187.32</div>
-              <div class="stat-change positive" id="aaplChange">+0.87%</div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">AAPL</span>
+              <i class="fab fa-apple"></i>
+            </div>
+            <div class="stat-value" id="aaplPrice">$187.32</div>
+            <div class="stat-footer">
+              <span class="stat-change positive" id="aaplChange">+0.87%</span>
+              <span class="stat-time">24h change</span>
             </div>
           </div>
-          <div class="stat-card gradient-card">
-            <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
-            <div class="stat-info">
-              <div class="stat-label">Total Volume</div>
-              <div class="stat-value" id="totalVolume">$128.5B</div>
-              <div class="stat-change">24h</div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-label">Total Volume</span>
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="stat-value" id="totalVolume">$128.5B</div>
+            <div class="stat-footer">
+              <span class="stat-change">Global 24h</span>
             </div>
           </div>
         </div>
 
-        <!-- Chart Section -->
-        <div class="chart-section glass-card">
-          <div class="chart-header">
-            <h3><i class="fas fa-chart-line"></i> Price Chart (7 Days)</h3>
-            <div class="chart-controls">
-              <button class="chart-time-btn active" data-time="7">1W</button>
-              <button class="chart-time-btn" data-time="30">1M</button>
-              <button class="chart-time-btn" data-time="90">3M</button>
+        <!-- Chart and Insights Row -->
+        <div class="dashboard-row">
+          <div class="chart-container glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-chart-line"></i> Price Action</h3>
+              <div class="chart-controls">
+                <button class="time-btn active" data-time="7">1W</button>
+                <button class="time-btn" data-time="30">1M</button>
+                <button class="time-btn" data-time="90">3M</button>
+              </div>
+            </div>
+            <canvas id="priceChart" height="250"></canvas>
+          </div>
+
+          <div class="insights-container glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-robot"></i> AI Market Insights</h3>
+              <span class="badge">Live Analysis</span>
+            </div>
+            <div id="recommendationList" class="insights-list">
+              <!-- Dynamic insights -->
             </div>
           </div>
-          <canvas id="priceChart" width="400" height="200"></canvas>
         </div>
 
-        <!-- Recommendations & Market Insights -->
-        <div class="insights-grid">
-          <div class="recommendations glass-card">
-            <h3><i class="fas fa-robot"></i> AI Trading Signals</h3>
-            <div id="recommendationList" class="rec-list">
-              <!-- Dynamic recommendations -->
+        <!-- Market Sentiment Row -->
+        <div class="sentiment-row">
+          <div class="sentiment-card glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-chart-simple"></i> Market Sentiment</h3>
             </div>
-          </div>
-          <div class="market-sentiment glass-card">
-            <h3><i class="fas fa-chart-simple"></i> Market Sentiment</h3>
             <div class="sentiment-meter">
-              <div class="sentiment-label">Bullish Momentum</div>
-              <div class="progress-bar">
+              <div class="sentiment-scale">
+                <span>Bearish</span>
+                <span>Neutral</span>
+                <span>Bullish</span>
+              </div>
+              <div class="sentiment-bar">
                 <div class="sentiment-fill" style="width: 74%"></div>
               </div>
-              <div class="sentiment-stats">
-                <span><i class="fas fa-chart-line"></i> 74% Bullish</span>
-                <span><i class="fas fa-chart-line fa-flip-horizontal"></i> 26% Bearish</span>
-              </div>
+              <div class="sentiment-value">74% Bullish</div>
             </div>
-            <div class="fear-greed-index">
-              <div class="fgi-label">Fear & Greed Index</div>
-              <div class="fgi-value greed">72 - Greed</div>
+            <div class="fgi-widget">
+              <div class="fgi-header">
+                <span>Fear & Greed Index</span>
+                <span class="fgi-value greed">72 - Greed</span>
+              </div>
               <div class="fgi-bar">
                 <div class="fgi-fill" style="width: 72%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="news-card glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-newspaper"></i> Market News</h3>
+              <a href="#" class="link">View all</a>
+            </div>
+            <div class="news-list">
+              <div class="news-item">
+                <i class="fas fa-chart-line"></i>
+                <div class="news-content">
+                  <h4>Bitcoin approaches $63k resistance</h4>
+                  <span>2 min ago</span>
+                </div>
+              </div>
+              <div class="news-item">
+                <i class="fas fa-building"></i>
+                <div class="news-content">
+                  <h4>Fed signals rate cuts in Q2</h4>
+                  <span>15 min ago</span>
+                </div>
+              </div>
+              <div class="news-item">
+                <i class="fas fa-chart-pie"></i>
+                <div class="news-content">
+                  <h4>ETF inflows reach $2.4B this week</h4>
+                  <span>1 hour ago</span>
+                </div>
               </div>
             </div>
           </div>
@@ -160,73 +272,121 @@
 
       <!-- Trade Page -->
       <div id="tradePage" class="page">
-        <div class="trade-container glass-card">
-          <h2><i class="fas fa-coins"></i> Execute Trade</h2>
-          <div class="asset-selector" id="assetSelector">
-            <div class="asset-option active blue-option" data-asset="BTC">
-              <i class="fab fa-bitcoin"></i> Bitcoin
+        <div class="trade-layout">
+          <div class="trade-panel glass-card">
+            <div class="card-header">
+              <h2><i class="fas fa-exchange-alt"></i> Execute Order</h2>
+              <span class="badge">Paper Trading</span>
             </div>
-            <div class="asset-option green-option" data-asset="ETH">
-              <i class="fab fa-ethereum"></i> Ethereum
+            
+            <div class="asset-selector" id="assetSelector">
+              <button class="asset-btn active" data-asset="BTC">
+                <i class="fab fa-bitcoin"></i> BTC/USD
+              </button>
+              <button class="asset-btn" data-asset="ETH">
+                <i class="fab fa-ethereum"></i> ETH/USD
+              </button>
+              <button class="asset-btn" data-asset="AAPL">
+                <i class="fab fa-apple"></i> AAPL
+              </button>
             </div>
-            <div class="asset-option yellow-option" data-asset="AAPL">
-              <i class="fab fa-apple"></i> Apple
+            
+            <div class="price-display">
+              <div class="price-label">Market Price</div>
+              <div class="price-value" id="tradePrice">$62,450.00</div>
+              <div class="price-change positive" id="tradePriceChange">+2.45%</div>
+            </div>
+            
+            <div class="order-form">
+              <div class="form-group">
+                <label>Order Type</label>
+                <div class="order-type-selector">
+                  <button class="order-type active">Market</button>
+                  <button class="order-type">Limit</button>
+                  <button class="order-type">Stop</button>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Amount (USD)</label>
+                <input type="number" id="tradeAmount" class="form-input" placeholder="0.00" value="100">
+                <div class="quick-amounts">
+                  <button class="quick-btn" data-amount="100">$100</button>
+                  <button class="quick-btn" data-amount="500">$500</button>
+                  <button class="quick-btn" data-amount="1000">$1k</button>
+                  <button class="quick-btn" data-amount="5000">$5k</button>
+                </div>
+              </div>
+              
+              <div class="balance-info">
+                <div class="info-row">
+                  <span>Available Balance</span>
+                  <strong id="availableBalance">$10,000.00</strong>
+                </div>
+                <div class="info-row">
+                  <span>Estimated Fee</span>
+                  <strong>$0.00</strong>
+                </div>
+                <div class="info-row">
+                  <span>Total</span>
+                  <strong id="orderTotal">$100.00</strong>
+                </div>
+              </div>
+              
+              <div class="trade-actions">
+                <button id="buyBtn" class="btn btn-buy">
+                  <i class="fas fa-arrow-up"></i> Buy
+                </button>
+                <button id="sellBtn" class="btn btn-sell">
+                  <i class="fas fa-arrow-down"></i> Sell
+                </button>
+              </div>
+              
+              <div id="tradeFeedback" class="feedback-message">
+                <i class="fas fa-info-circle"></i> Ready to trade
+              </div>
             </div>
           </div>
           
-          <div class="trade-info">
-            <div class="current-price">
-              <span>Current Price</span>
-              <strong id="tradePrice">$62,450.00</strong>
+          <div class="positions-panel glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-briefcase"></i> Open Positions</h3>
             </div>
-            <div class="balance-info">
-              <span>Available Balance</span>
-              <strong id="availableBalance">$10,000.00</strong>
+            <div class="positions-list" id="positionsList">
+              <div class="no-positions">No open positions</div>
             </div>
-          </div>
-
-          <div class="trade-input-group">
-            <label>Amount (USD)</label>
-            <input type="number" id="tradeAmount" class="trade-input" placeholder="Enter amount" value="100">
-            <div class="quick-amounts">
-              <button class="quick-amount" data-amount="100">$100</button>
-              <button class="quick-amount" data-amount="500">$500</button>
-              <button class="quick-amount" data-amount="1000">$1,000</button>
-              <button class="quick-amount" data-amount="5000">$5,000</button>
-            </div>
-          </div>
-
-          <div class="trade-buttons">
-            <button id="buyBtn" class="btn btn-buy">
-              <i class="fas fa-arrow-up"></i> BUY
-            </button>
-            <button id="sellBtn" class="btn btn-sell">
-              <i class="fas fa-arrow-down"></i> SELL
-            </button>
-          </div>
-
-          <div id="tradeFeedback" class="feedback">
-            <i class="fas fa-info-circle"></i> Ready to trade
           </div>
         </div>
       </div>
 
       <!-- History Page -->
       <div id="historyPage" class="page">
-        <div class="history-container glass-card">
-          <h2><i class="fas fa-history"></i> Trading History</h2>
-          <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="buy">Buys</button>
-            <button class="filter-btn" data-filter="sell">Sells</button>
+        <div class="history-panel glass-card">
+          <div class="card-header">
+            <h2><i class="fas fa-history"></i> Trade History</h2>
+            <div class="history-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="buy">Buys</button>
+              <button class="filter-btn" data-filter="sell">Sells</button>
+            </div>
           </div>
-          <div class="table-container">
-            <table class="history-table" id="historyTable">
+          <div class="table-wrapper">
+            <table class="data-table">
               <thead>
-                <tr><th>Date</th><th>Asset</th><th>Type</th><th>Amount</th><th>Price</th><th>Total</th></tr>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Asset</th>
+                  <th>Type</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                </tr>
               </thead>
               <tbody id="historyList">
-                <tr><td colspan="6" class="no-data">No trades yet</td></tr>
+                <tr>
+                  <td colspan="7" class="empty-state">No trades executed yet</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -236,24 +396,127 @@
       <!-- Analytics Page -->
       <div id="analyticsPage" class="page">
         <div class="analytics-grid">
-          <div class="analytics-card glass-card blue-glow">
-            <h3><i class="fas fa-chart-pie"></i> Portfolio Distribution</h3>
-            <canvas id="portfolioChart" width="300" height="300"></canvas>
+          <div class="analytics-card glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-chart-pie"></i> Portfolio Allocation</h3>
+            </div>
+            <canvas id="portfolioChart" height="250"></canvas>
           </div>
-          <div class="analytics-card glass-card green-glow">
-            <h3><i class="fas fa-trophy"></i> Performance Stats</h3>
-            <div class="stats-list">
-              <div class="stat-row"><span><i class="fas fa-chart-simple"></i> Total Trades:</span><strong id="totalTrades">0</strong></div>
-              <div class="stat-row"><span><i class="fas fa-check-circle"></i> Win Rate:</span><strong id="winRate">0%</strong></div>
-              <div class="stat-row"><span><i class="fas fa-dollar-sign"></i> Profit/Loss:</span><strong id="profitLoss">$0.00</strong></div>
-              <div class="stat-row"><span><i class="fas fa-crown"></i> Best Trade:</span><strong id="bestTrade">-</strong></div>
+          
+          <div class="analytics-card glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-chart-bar"></i> Performance Metrics</h3>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric">
+                <div class="metric-label">Total Trades</div>
+                <div class="metric-value" id="totalTrades">0</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Win Rate</div>
+                <div class="metric-value" id="winRate">0%</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Profit/Loss</div>
+                <div class="metric-value" id="profitLoss">$0.00</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Best Trade</div>
+                <div class="metric-value" id="bestTrade">-</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Avg. Return</div>
+                <div class="metric-value" id="avgReturn">0%</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Win Streak</div>
+                <div class="metric-value" id="winStreak">0</div>
+              </div>
             </div>
           </div>
-          <div class="analytics-card glass-card yellow-glow">
-            <h3><i class="fas fa-fire"></i> Trading Streak</h3>
-            <div class="streak-container">
-              <div class="streak-number" id="streakCount">0</div>
-              <div class="streak-label">Consecutive Winning Trades</div>
+          
+          <div class="analytics-card glass-card full-width">
+            <div class="card-header">
+              <h3><i class="fas fa-calendar-alt"></i> Trading Activity</h3>
+            </div>
+            <canvas id="activityChart" height="150"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Page -->
+      <div id="settingsPage" class="page">
+        <div class="settings-grid">
+          <div class="settings-card glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-user"></i> Profile Settings</h3>
+            </div>
+            <div class="settings-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Display Name</label>
+                  <input type="text" class="form-input" value="Alex Thompson" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-input" value="alex@nexustrade.com" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Default Currency</label>
+                  <select class="form-select">
+                    <option>USD ($)</option>
+                    <option>EUR (€)</option>
+                    <option>GBP (£)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Theme</label>
+                  <select class="form-select">
+                    <option>Dark</option>
+                    <option>Light</option>
+                    <option>System</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-card glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-bell"></i> Notifications</h3>
+            </div>
+            <div class="settings-options">
+              <label class="toggle-item">
+                <span>Price Alerts</span>
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+              <label class="toggle-item">
+                <span>Trade Confirmations</span>
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+              <label class="toggle-item">
+                <span>Market News</span>
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="settings-card glass-card">
+            <div class="card-header">
+              <h3><i class="fas fa-shield-alt"></i> Security</h3>
+            </div>
+            <div class="security-options">
+              <button class="security-btn">
+                <i class="fas fa-lock"></i> Change Password
+              </button>
+              <button class="security-btn">
+                <i class="fas fa-mobile-alt"></i> 2FA Setup
+              </button>
             </div>
           </div>
         </div>
