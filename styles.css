@@ -1,0 +1,350 @@
+/* ========== GLOBAL STYLES & RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at 20% 30%, #0a0f1e, #05070f);
+  font-family: 'Inter', sans-serif;
+  color: #eef5ff;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.glass-card {
+  background: rgba(15, 25, 45, 0.55);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  border: 1px solid rgba(72, 187, 255, 0.2);
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.trend-up { color: #10b981; }
+.trend-down { color: #ef4444; }
+
+/* ========== HEADER ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+}
+
+.logo h1 {
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 600;
+  font-size: 1.9rem;
+  background: linear-gradient(135deg, #FFFFFF, #3b82f6, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.logo p {
+  font-size: 0.8rem;
+  color: #8ca3cf;
+  margin-top: 0.2rem;
+}
+
+.live-badge {
+  background: rgba(16, 185, 129, 0.2);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+  border: 1px solid #10b98140;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.live-badge i {
+  color: #10b981;
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; text-shadow: 0 0 4px #10b981; }
+}
+
+/* ========== STATS GRID ========== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  background: rgba(10, 20, 35, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  padding: 1.2rem 1.2rem;
+  border-left: 4px solid #3b82f6;
+  transition: transform 0.2s;
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+  background: rgba(20, 35, 55, 0.7);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9bb4e0;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 8px;
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* ========== DASHBOARD PANELS (2 COLUMN) ========== */
+.dashboard-panels {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 850px) {
+  .dashboard-panels {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  body {
+    padding: 1rem;
+  }
+}
+
+/* ========== CHART AREA ========== */
+.chart-area {
+  padding: 1.5rem;
+}
+
+.market-img {
+  width: 100%;
+  border-radius: 1.2rem;
+  background: #071126;
+  margin-top: 0.5rem;
+  border: 1px solid #2d3a5e;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.chart-note {
+  font-size: 0.7rem;
+  margin-top: 0.8rem;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ========== TRADE WIDGET ========== */
+.trade-widget {
+  padding: 1.5rem;
+}
+
+.asset-selector {
+  background: #0e1628;
+  border-radius: 1rem;
+  padding: 0.2rem;
+  display: inline-flex;
+  margin-bottom: 1.5rem;
+  border: 1px solid #2a3650;
+}
+
+.asset-option {
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.asset-option.active {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 4px 10px #2563eb40;
+}
+
+.price-info {
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.trade-input {
+  background: #0a0f1c;
+  border: 1px solid #2c3c5e;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.trade-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.trade-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-buy {
+  background: linear-gradient(95deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 5px 12px #10b98130;
+}
+
+.btn-sell {
+  background: linear-gradient(95deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  transform: scale(0.98);
+}
+
+.feedback {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  background: #0b112030;
+  padding: 8px 12px;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+/* ========== RECOMMENDATION SECTION ========== */
+.recommendation-section {
+  background: rgba(5, 12, 24, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 1.8rem;
+  padding: 1.3rem 1.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(59,130,246,0.3);
+}
+
+.rec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.progress-bar-container {
+  background: #1e2a44;
+  border-radius: 20px;
+  height: 10px;
+  width: 100%;
+  margin: 0.8rem 0;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #3b82f6, #a855f7);
+  border-radius: 20px;
+  height: 10px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.rec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.rec-item {
+  background: rgba(255,255,255,0.03);
+  border-radius: 1.2rem;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 3px solid #3b82f6;
+}
+
+.rec-icon {
+  font-size: 1.4rem;
+}
+
+.rec-text {
+  flex: 1;
+}
+
+.rec-title {
+  font-weight: 600;
+}
+
+.rec-sub {
+  font-size: 0.7rem;
+  color: #9eb1d0;
+}
+
+.badge-score {
+  background: #1f2a46;
+  padding: 0.2rem 0.7rem;
+  border-radius: 40px;
+  font-size: 0.7rem;
+}
+
+.update-note {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+i, .fas, .far {
+  pointer-events: none;
+}
